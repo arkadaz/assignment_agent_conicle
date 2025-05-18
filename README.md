@@ -4,20 +4,9 @@ A Streamlit application that helps users find relevant competencies and course r
 
 ## How The Algorithm Works
 
-1.  **Vector Database Search**:
-    * User queries are converted to vector embeddings using sentence-transformers
-    * These embeddings are compared against stored competency embeddings in Qdrant
-    * The most semantically similar competencies are retrieved
-
-2.  **Web Scraping for Courses**:
-    * Selected competencies are used as search terms on Coniverse.com
-    * Selenium automates the browser to collect course titles and details
-    * Results are aggregated across all selected competencies
-
-3.  **LLM-Based Recommendation**:
-    * GPT-4o processes raw course data along with user context
-    * The model filters out irrelevant courses and ranks the most suitable ones
-    * Personalized recommendations are presented with explanations
+1.  It uses the user query to search for related competencies in a vector database.
+2.  It then uses those competencies to search for relevant courses by web scraping https://coniverse.com/.
+3.  Finally, it uses an LLM (Large Language Model) to decide which of the found courses are most related to the user's original query and recommends them.
 
 ## Running The Application
 
